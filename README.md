@@ -1,80 +1,37 @@
-# Project Title
+# Simple Springboot OAuth2 Project
 
-One Paragraph of project description goes here
+This project contains two applications.One of them oauth2-server and the other oauth2-client.Our oauth2-server project protects the oauth2-client Rest API's.If user want to send requesto to oauth2-client Rest APIs , the user must be authenticate to oauth2-server .
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Before you started you should read these articles because this project was developed by following articles, in these articles explain the OAuth2 and the JWT technologieis :
 
-### Prerequisites
+http://www.tinmegali.com/en/oauth2-using-spring/
+http://stytex.de/blog/2016/02/01/spring-cloud-security-with-oauth2/
 
-What things you need to install the software and how to install them
+## Running
 
-```
-Give examples
-```
+Firstly , you must run oauth2-server to provide token to users.
+Inside OAuth2ServerConfiguration.class you will see the client's credentials, so you can get token like this :
 
-### Installing
+curl -XPOST "trusted-app:webapp@localhost:9091/oauth/token" -d "grant_type=password&username=user&passsword=passsword"
 
-A step by step series of examples that tell you have to get a development env running
+After you get the access token you can send the http request to oauth2-client:
 
-Say what the step will be
+curl -X GET -H "Authorization: Bearer access_token" http://localhost:9090/api/hello --> This request will be work.
+curl -X GET -H "Authorization: Bearer access_token" http://localhost:9090/api/admin --> This request will return access_denied error , becuase this user doesn't have ROLE_ADMIN role.
 
-```
-Give the example
-```
+If you want to send request to /api/admin you should login with admin user.
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+curl -XPOST "trusted-app:webapp@localhost:9091/oauth/token" -d "grant_type=password&username=admin&passsword=passsword"
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Maven](https://maven.apache.org/) - Dependency Management 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Batuhan Apaydın** - *Initial work* - [PurpleBooth](https://github.com/developer-guy)
 
 ## License
 
