@@ -14,16 +14,16 @@ http://stytex.de/blog/2016/02/01/spring-cloud-security-with-oauth2/
 Firstly , you must run oauth2-server to provide token to users.
 Inside OAuth2ServerConfiguration.class you will see the client's credentials, so you can get token like this :
 
-curl -XPOST "trusted-app:webapp@localhost:9091/oauth/token" -d "grant_type=password&username=user&passsword=passsword"
+* curl -XPOST "trusted-app:webapp@localhost:9091/oauth/token" -d "grant_type=password&username=user&passsword=passsword"
 
 After you get the access token you can send the http request to oauth2-client:
 
-curl -X GET -H "Authorization: Bearer access_token" http://localhost:9090/api/hello --> This request will be work.
-curl -X GET -H "Authorization: Bearer access_token" http://localhost:9090/api/admin --> This request will return access_denied error , becuase this user doesn't have ROLE_ADMIN role.
+* curl -X GET -H "Authorization: Bearer access_token" http://localhost:9090/api/hello --> This request will be work.
+* curl -X GET -H "Authorization: Bearer access_token" http://localhost:9090/api/admin --> This request will return access_denied error , becuase this user doesn't have ROLE_ADMIN role.
 
 If you want to send request to /api/admin you should login with admin user.
 
-curl -XPOST "trusted-app:webapp@localhost:9091/oauth/token" -d "grant_type=password&username=admin&passsword=passsword"
+* curl -XPOST "trusted-app:webapp@localhost:9091/oauth/token" -d "grant_type=password&username=admin&passsword=passsword"
 
 ## Built With
 
