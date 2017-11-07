@@ -6,7 +6,7 @@ This project contains two applications.One of them oauth2-server and the other o
 
 Before you started you should read these articles because this project was developed by following articles, in these articles explain the OAuth2 and the JWT technologieis :
 
-http://www.tinmegali.com/en/oauth2-using-spring/ _
+http://www.tinmegali.com/en/oauth2-using-spring/ <br />
 http://stytex.de/blog/2016/02/01/spring-cloud-security-with-oauth2/
 
 ## Running
@@ -31,7 +31,7 @@ curl -XPOST "trusted-app:webapp@localhost:9091/oauth/token" -d "grant_type=passw
 
 ## Authors
 
-* **Batuhan Apaydın** - *Initial work* - [PurpleBooth](https://github.com/developer-guy)
+* **Batuhan Apaydın** - *Initial work* - [SAHABT](https://github.com/developer-guy)
 
 ## License
 
