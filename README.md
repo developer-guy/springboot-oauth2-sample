@@ -6,7 +6,7 @@ This project contains two applications.One of them oauth2-server and the other o
 
 Before you started you should read these articles because this project was developed by following articles, in these articles explain the OAuth2 and the JWT technologieis :
 
-http://www.tinmegali.com/en/oauth2-using-spring/
+http://www.tinmegali.com/en/oauth2-using-spring/ \n
 http://stytex.de/blog/2016/02/01/spring-cloud-security-with-oauth2/
 
 ## Running
